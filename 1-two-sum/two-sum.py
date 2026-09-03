@@ -1,16 +1,13 @@
 class Solution(object):
     def twoSum(self, nums, target):
+        prevMap = {}
 
-        hash_map = {}
+        for i , n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return[prevMap[diff] ,i]
+            prevMap[n] = i 
+        return[]            
 
-        for i, num in enumerate(nums):
-            if target - num in hash_map:
-                return [hash_map[target - num], i]
-            hash_map[num] = i
 
-        return []
-
-# fix: call using the class and define nums/target
-nums = [2, 7, 11, 15]
-target = 9
-
+       
